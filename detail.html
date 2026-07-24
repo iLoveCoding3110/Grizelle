@@ -450,7 +450,6 @@ const productOptions = {
         const mv = document.getElementById('arViewer'), btn = document.getElementById('arBtn');
         mv.addEventListener('load', () => { btn.style.display = 'inline-flex' });
         mv.addEventListener('error', () => renderImage(imgSrc, alt));
-        setTimeout(() => { if (!mv.loaded) renderImage(imgSrc, alt) }, 9000);
       } else {
         renderImage(imgSrc, alt);
       }
