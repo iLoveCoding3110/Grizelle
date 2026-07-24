@@ -329,15 +329,15 @@
     const items = {};
     const standardTiers = [['Kemasan Standar', ['5.000', '4.500', '4.250', '4.000']]];
     const codedProducts = [
-      ['A001', 'Pouch', 'Pouch Serut Kanvas Polos', 'asset/catalog/A001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/A001.glb'],
+      ['A001', 'Pouch', 'Pouch Serut Kanvas Polos', 'asset/catalog/A001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/A001.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/A001.usdz'],
       ['A002', 'Pouch', 'Pouch Kulit Bronze Wristlet', 'asset/catalog/A002.png', 'https://grizelle-3d.lunarcreativa.workers.dev/A002.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/A002.usdz'],
       ['A003', 'Pouch', 'Pouch Kanvas Motif Aztec', 'asset/catalog/A003.png', 'https://grizelle-3d.lunarcreativa.workers.dev/A003.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/A003.usdz'],
-      ['B001', 'Botol Kaca', 'Botol Kaca Frosted Tutup Stainless', 'asset/catalog/B001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/B001.glb'],
-      ['B002', 'Botol Kaca', 'Tumbler Kaca Sleeve Kulit', 'asset/catalog/B002.png', 'https://grizelle-3d.lunarcreativa.workers.dev/B002.glb'],
-      ['E001', 'Gelas Alumunium', 'Gelas Enamel Klasik', 'asset/catalog/E001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/E001.glb'],
-      ['F001', 'Tas', 'Tas Kanvas Tote Motif Tropical', 'asset/catalog/F001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/F001.glb'],
-      ['G001', 'Piring', 'Piring Keramik Motif Biru Putih', 'asset/catalog/G001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/G001.glb'],
-      ['I001', 'Dispenser Sabun', 'Dispenser Sabun Custom', 'asset/catalog/I001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/I001.glb']
+      ['B001', 'Botol Kaca', 'Botol Kaca Frosted Tutup Stainless', 'asset/catalog/B001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/B001.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/B001.usdz'],
+      ['B002', 'Botol Kaca', 'Tumbler Kaca Sleeve Kulit', 'asset/catalog/B002.png', 'https://grizelle-3d.lunarcreativa.workers.dev/B002.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/B002.usdz'],
+      ['E001', 'Gelas Alumunium', 'Gelas Enamel Klasik', 'asset/catalog/E001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/E001.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/E001.usdz'],
+      ['F001', 'Tas', 'Tas Kanvas Tote Motif Tropical', 'asset/catalog/F001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/F001.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/F001.usdz'],
+      ['G001', 'Piring', 'Piring Keramik Motif Biru Putih', 'asset/catalog/G001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/G001.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/G001.usdz'],
+      ['I001', 'Dispenser Sabun', 'Dispenser Sabun Custom', 'asset/catalog/I001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/I001.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/I001.usdz']
     ];
     codedProducts.forEach(([code, cat, name, img, modelGlb, modelUsdz]) => { items[code] = { cat, name, img, modelGlb, modelUsdz, description: `${name} dari koleksi souvenir Grizelle. Hubungi kami untuk spesifikasi, kustomisasi warna/label, dan harga berdasarkan jumlah pesanan.`, spec: [['Kode produk', code], ['Kategori', cat], ['Model 3D', modelGlb ? 'Tersedia' : 'Belum tersedia'], ['Minimum order', 'Hubungi kami']], tiers: standardTiers } });
     const fallback = { cat: 'Koleksi Grizelle', name: 'Produk tidak ditemukan', img: 'asset/catalog/A001.png', description: 'Produk yang diminta tidak ditemukan. Silakan kembali ke katalog untuk memilih produk.', spec: [['Status', 'Kode produk tidak terdaftar']], tiers: [] };
