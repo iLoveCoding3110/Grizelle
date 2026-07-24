@@ -165,6 +165,34 @@
       text-transform: uppercase
     }
 
+    .option-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .option-pill {
+      padding: 9px 20px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      font: 500 12px/1 Inter, Arial, sans-serif;
+      letter-spacing: .03em;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .option-pill:hover {
+      border-color: var(--gold)
+    }
+
+    .option-pill.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff
+    }
+
     .spec {
       border-top: 1px solid var(--line)
     }
@@ -309,6 +337,10 @@
       <p id="category" class="eyebrow"></p>
       <h1 id="name"></h1>
       <p id="description" class="desc"></p>
+      <div class="section" id="optionsSection" hidden>
+        <p class="section-title">Pilih varian</p>
+        <div id="optionList" class="option-list"></div>
+      </div>
       <div class="section">
         <p class="section-title">Detail produk</p>
         <div id="spec" class="spec"></div>
@@ -325,7 +357,7 @@
     </section>
   </main>
   <script>
-    const q = new URLSearchParams(location.search).get('item') || 'A001';
+    const q = new URLSearchParams(location.search).get('item');
     const items = {};
     const standardTiers = [['Kemasan Standar', ['5.000', '4.500', '4.250', '4.000']]];
     const codedProducts = [
@@ -340,18 +372,116 @@
       ['I001', 'Dispenser Sabun', 'Dispenser Sabun Custom', 'asset/catalog/I001.png', 'https://grizelle-3d.lunarcreativa.workers.dev/I001.glb', 'https://grizelle-3d.lunarcreativa.workers.dev/I001.usdz']
     ];
     codedProducts.forEach(([code, cat, name, img, modelGlb, modelUsdz]) => { items[code] = { cat, name, img, modelGlb, modelUsdz, description: `${name} dari koleksi souvenir Grizelle. Hubungi kami untuk spesifikasi, kustomisasi warna/label, dan harga berdasarkan jumlah pesanan.`, spec: [['Kode produk', code], ['Kategori', cat], ['Model 3D', modelGlb ? 'Tersedia' : 'Belum tersedia'], ['Minimum order', 'Hubungi kami']], tiers: standardTiers } });
-    const fallback = { cat: 'Koleksi Grizelle', name: 'Produk tidak ditemukan', img: 'asset/catalog/A001.png', description: 'Produk yang diminta tidak ditemukan. Silakan kembali ke katalog untuk memilih produk.', spec: [['Status', 'Kode produk tidak terdaftar']], tiers: [] };
+
+    // ====== OPSI VARIAN (opsional per produk) ======
+    // Tambahkan entri di sini untuk kode produk yang punya pilihan warna/model.
+    // Setiap opsi boleh punya "img" sendiri (foto) dan/atau "modelGlb"/"modelUsdz" sendiri (3D),
+    // serta "tiers" sendiri jika harganya beda. Kalau tidak diisi, akan memakai punya produk utama.
+const productOptions = {
+  'B001': [
+    { 
+      label: 'Produk', 
+      img: 'asset/catalog/B001.png', 
+      modelGlb: 'https://grizelle-3d.lunarcreativa.workers.dev/B001.glb',
+      modelUsdz: 'https://grizelle-3d.lunarcreativa.workers.dev/B001.usdz',
+      tiers: [['Kemasan Standar', ['5.000', '4.500', '4.250', '4.000']]] 
+    },
+    { label: 'Hard Box 1', img: 'asset/catalog/H002.png', tiers: [['Kemasan Standar', ['5.200', '4.700', '4.450', '4.200']]] },
+    ],
+  'B002': [
+    { 
+      label: 'Produk', 
+      img: 'asset/catalog/B002.png', 
+      modelGlb: 'https://grizelle-3d.lunarcreativa.workers.dev/B002.glb',
+      modelUsdz: 'https://grizelle-3d.lunarcreativa.workers.dev/B002.usdz',
+      tiers: [['Kemasan Standar', ['5.000', '4.500', '4.250', '4.000']]] 
+    },
+    { label: 'Hard Box', img: 'asset/catalog/H006.png', tiers: [['Kemasan Standar', ['5.200', '4.700', '4.450', '4.200']]] },
+  ],
+  'E001': [
+    { 
+      label: 'Produk', 
+      img: 'asset/catalog/B002.png', 
+      modelGlb: 'https://grizelle-3d.lunarcreativa.workers.dev/E001.glb',
+      modelUsdz: 'https://grizelle-3d.lunarcreativa.workers.dev/E001.usdz',
+      tiers: [['Kemasan Standar', ['5.000', '4.500', '4.250', '4.000']]] 
+    },
+    { label: 'Hard Box 1', img: 'asset/catalog/H001.png', tiers: [['Kemasan Standar', ['5.200', '4.700', '4.450', '4.200']]] },
+    { label: 'Hard Box 2', img: 'asset/catalog/H007.png', tiers: [['Kemasan Standar', ['5.200', '4.700', '4.450', '4.200']]] },
+
+  ],
+  'G001': [
+    { 
+      label: 'Produk', 
+      img: 'asset/catalog/G001.png', 
+      modelGlb: 'https://grizelle-3d.lunarcreativa.workers.dev/G001.glb',
+      modelUsdz: 'https://grizelle-3d.lunarcreativa.workers.dev/G001.usdz',
+      tiers: [['Kemasan Standar', ['5.000', '4.500', '4.250', '4.000']]] 
+    },
+    { label: 'Hard Box 1', img: 'asset/catalog/H005.png', tiers: [['Kemasan Standar', ['5.200', '4.700', '4.450', '4.200']]] },
+    { label: 'Hard Box 2', img: 'asset/catalog/H003.png', tiers: [['Kemasan Standar', ['5.200', '4.700', '4.450', '4.200']]] },
+
+  ],
+  'I001': [
+    { 
+      label: 'Produk', 
+      img: 'asset/catalog/I001.png', 
+      modelGlb: 'https://grizelle-3d.lunarcreativa.workers.dev/I001.glb',
+      modelUsdz: 'https://grizelle-3d.lunarcreativa.workers.dev/I001.usdz',
+      tiers: [['Kemasan Standar', ['5.000', '4.500', '4.250', '4.000']]] 
+    },
+    { label: 'Hard Box 1', img: 'asset/catalog/H002.png', tiers: [['Kemasan Standar', ['5.200', '4.700', '4.450', '4.200']]] },
+    { label: 'Hard Box 2', img: 'asset/catalog/H004.png', tiers: [['Kemasan Standar', ['5.200', '4.700', '4.450', '4.200']]] },
+
+  ]
+};
+
+    const fallback = { cat: 'Koleksi Grizelle', name: 'Produk tidak ditemukan', img: 'https://grizelle-3d.lunarcreativa.workers.dev/A001.glb', description: 'Produk yang diminta tidak ditemukan. Silakan kembali ke katalog untuk memilih produk.', spec: [['Status', 'Kode produk tidak terdaftar']], tiers: [] };
     const p = items[q] || fallback;
     document.getElementById('name').textContent = p.name;
-    const showFallback = () => { imageMain.innerHTML = `<img id="mainImage" alt="${p.name}">`; mainImage.src = p.img; mainImage.alt = p.name };
-    if (p.modelGlb) {
-      imageMain.innerHTML = `<model-viewer id="arViewer" src="${p.modelGlb}" ios-src="${p.modelUsdz}" alt="${p.name}" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1"><div slot="poster" class="ar-poster" id="arPosterMsg">Menyiapkan pratinjau 3D…</div><button slot="ar-button" class="ar-cta" id="arBtn" style="display:none">Lihat dalam AR ↗</button></model-viewer>`;
-      const mv = document.getElementById('arViewer'), msg = document.getElementById('arPosterMsg'), btn = document.getElementById('arBtn');
-      mv.addEventListener('load', () => { btn.style.display = 'inline-flex' });
-      mv.addEventListener('error', showFallback);
-      setTimeout(() => { if (!mv.loaded) showFallback() }, 9000);
-    } else { showFallback() }
-    category.textContent = p.cat; name.textContent = p.name; description.textContent = p.description; spec.innerHTML = p.spec.map(x => `<div><span>${x[0]}</span><span>${x[1]}</span></div>`).join(''); tiers.innerHTML = p.tiers.length ? p.tiers.map(t => `<div class="tier"><p class="tier-name">${t[0]}</p><div class="tier-prices">${['100 pcs', '300 pcs', '500 pcs', '1.000 pcs'].map((n, i) => `<div><span>${n}</span><strong>Rp ${t[1][i]}</strong></div>`).join('')}</div></div>`).join('') : '<div class="notice">Harga per pcs untuk koleksi ini sedang diperbarui. Hubungi kami untuk informasi tercepat.</div>'; wa.href = 'https://wa.me/6281215893627?text=' + encodeURIComponent('Halo Grizelle, saya ingin bertanya tentang ' + p.name + '.'); if (p.variants) { variants.hidden = false; variantGrid.innerHTML = p.variants.map(src => `<img src="${src}" alt="Varian ${p.name}">`).join('') }
+
+    function renderTiers(tiersData) {
+      return (tiersData && tiersData.length) ? tiersData.map(t => `<div class="tier"><p class="tier-name">${t[0]}</p><div class="tier-prices">${['100 pcs', '300 pcs', '500 pcs', '1.000 pcs'].map((n, i) => `<div><span>${n}</span><strong>Rp ${t[1][i]}</strong></div>`).join('')}</div></div>`).join('') : '<div class="notice">Harga per pcs untuk koleksi ini sedang diperbarui. Hubungi kami untuk informasi tercepat.</div>';
+    }
+
+    function renderMedia(modelGlb, modelUsdz, imgSrc, alt) {
+      if (modelGlb) {
+        imageMain.innerHTML = `<model-viewer id="arViewer" src="${modelGlb}" ios-src="${modelUsdz || ''}" alt="${alt}" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1"><div slot="poster" class="ar-poster" id="arPosterMsg">Menyiapkan pratinjau 3D…</div><button slot="ar-button" class="ar-cta" id="arBtn" style="display:none">Lihat dalam AR ↗</button></model-viewer>`;
+        const mv = document.getElementById('arViewer'), btn = document.getElementById('arBtn');
+        mv.addEventListener('load', () => { btn.style.display = 'inline-flex' });
+        mv.addEventListener('error', () => renderImage(imgSrc, alt));
+        setTimeout(() => { if (!mv.loaded) renderImage(imgSrc, alt) }, 9000);
+      } else {
+        renderImage(imgSrc, alt);
+      }
+    }
+    function renderImage(imgSrc, alt) {
+      imageMain.innerHTML = `<img id="mainImage" alt="${alt}">`;
+      mainImage.src = imgSrc;
+      mainImage.alt = alt;
+    }
+
+    renderMedia(p.modelGlb, p.modelUsdz, p.img, p.name);
+    category.textContent = p.cat; name.textContent = p.name; description.textContent = p.description; spec.innerHTML = p.spec.map(x => `<div><span>${x[0]}</span><span>${x[1]}</span></div>`).join('');
+    tiers.innerHTML = renderTiers(p.tiers);
+    wa.href = 'https://wa.me/6281215893627?text=' + encodeURIComponent('Halo Grizelle, saya ingin bertanya tentang ' + p.name + '.');
+    if (p.variants) { variants.hidden = false; variantGrid.innerHTML = p.variants.map(src => `<img src="${src}" alt="Varian ${p.name}">`).join('') }
+
+    // ====== Render tombol opsi & mekanisme ganti gambar/harga ======
+    const opts = productOptions[q];
+    if (opts && opts.length) {
+      optionsSection.hidden = false;
+      let waBaseText = 'Halo Grizelle, saya ingin bertanya tentang ' + p.name;
+      const applyOption = (idx) => {
+        const opt = opts[idx];
+        renderMedia(opt.modelGlb || null, opt.modelUsdz || null, opt.img || p.img, p.name + ' - ' + opt.label);
+        tiers.innerHTML = renderTiers(opt.tiers || p.tiers);
+        [...optionList.children].forEach((el, i) => el.classList.toggle('active', i === idx));
+        wa.href = 'https://wa.me/6281215893627?text=' + encodeURIComponent(waBaseText + ' (varian ' + opt.label + ').');
+      };
+      optionList.innerHTML = opts.map((o, i) => `<button type="button" class="option-pill${i === 0 ? ' active' : ''}" data-i="${i}">${o.label}</button>`).join('');
+      [...optionList.children].forEach((btn, i) => btn.addEventListener('click', () => applyOption(i)));
+    }
   </script>
 </body>
 

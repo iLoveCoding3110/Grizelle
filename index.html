@@ -1,52 +1,555 @@
 <!doctype html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Katalog dan pricelist souvenir pernikahan premium Grizelle Souvenir Solo.">
   <title>Grizelle. | Pricelist Souvenir</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <style>
-    :root{--ivory:#f8f5f0;--ink:#292522;--cocoa:#5a3820;--gold:#bc8a4c;--sand:#e9e1d5;--line:rgba(41,37,34,.12)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ivory);color:var(--ink);font-family:Inter,Arial,sans-serif}a{text-decoration:none;color:inherit}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}.header{position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line);background:rgba(248,245,240,.94);backdrop-filter:blur(12px)}.nav{height:70px;display:flex;align-items:center;justify-content:space-between}.brand{font:700 34px/1 'Cormorant Garamond',serif;letter-spacing:-.04em}.brand b{color:var(--gold)}.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;border:0;cursor:pointer;transition:.2s}.nav-cta{padding:11px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.04em}.nav-cta:hover,.button:hover{background:var(--cocoa)}.hero{min-height:460px;display:flex;align-items:end;position:relative;isolation:isolate;overflow:hidden;color:#fff;background:linear-gradient(90deg,rgba(20,15,11,.94) 0%,rgba(20,15,11,.8) 38%,rgba(20,15,11,.35) 68%,rgba(20,15,11,.1) 100%),url('asset/thumbnail.png') center/cover}.hero:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(0,0,0,.35),transparent 65%)}.hero-inner{padding:80px 0 67px}.eyebrow{margin:0 0 15px;color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}.hero .eyebrow{color:#ebcfac}.hero h1{max-width:740px;margin:0;font:600 clamp(55px,8vw,98px)/.86 'Cormorant Garamond',serif;letter-spacing:-.045em}.hero em{color:#e8bd85;font-weight:500}.hero p:last-child{max-width:490px;margin:23px 0 0;color:rgba(255,255,255,.88);font-size:15px;line-height:1.7}.catalog{padding:76px 0 86px}.catalog-top{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:36px}.catalog h2{margin:0;font:600 52px/.9 'Cormorant Garamond',serif;letter-spacing:-.04em}.catalog-note{max-width:330px;margin:0;color:rgba(41,37,34,.56);font-size:12px;line-height:1.7;text-align:right}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 24px}
+    :root {
+      --ivory: #f8f5f0;
+      --ink: #292522;
+      --cocoa: #5a3820;
+      --gold: #bc8a4c;
+      --sand: #e9e1d5;
+      --line: rgba(41, 37, 34, .12)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: Inter, Arial, sans-serif
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      border-bottom: 1px solid var(--line);
+      background: rgba(248, 245, 240, .94);
+      backdrop-filter: blur(12px)
+    }
+
+    .nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .brand {
+      font: 700 34px/1 'Cormorant Garamond', serif;
+      letter-spacing: -.04em
+    }
+
+    .brand b {
+      color: var(--gold)
+    }
+
+    .nav-cta,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+      color: #fff;
+      border: 0;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .04em
+    }
+
+    .nav-cta:hover,
+    .button:hover {
+      background: var(--cocoa)
+    }
+
+    .hero {
+      min-height: 460px;
+      display: flex;
+      align-items: end;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      color: #fff;
+      background: linear-gradient(90deg, rgba(20, 15, 11, .94) 0%, rgba(20, 15, 11, .8) 38%, rgba(20, 15, 11, .35) 68%, rgba(20, 15, 11, .1) 100%), url('asset/thumbnail.png') center/cover
+    }
+
+    .hero:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(0deg, rgba(0, 0, 0, .35), transparent 65%)
+    }
+
+    .hero-inner {
+      padding: 80px 0 67px
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase
+    }
+
+    .hero .eyebrow {
+      color: #ebcfac
+    }
+
+    .hero h1 {
+      max-width: 740px;
+      margin: 0;
+      font: 600 clamp(55px, 8vw, 98px)/.86 'Cormorant Garamond', serif;
+      letter-spacing: -.045em
+    }
+
+    .hero em {
+      color: #e8bd85;
+      font-weight: 500
+    }
+
+    .hero p:last-child {
+      max-width: 490px;
+      margin: 23px 0 0;
+      color: rgba(255, 255, 255, .88);
+      font-size: 15px;
+      line-height: 1.7
+    }
+
+    .catalog {
+      padding: 76px 0 86px
+    }
+
+    .catalog-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 36px
+    }
+
+    .catalog h2 {
+      margin: 0;
+      font: 600 52px/.9 'Cormorant Garamond', serif;
+      letter-spacing: -.04em
+    }
+
+    .catalog-note {
+      max-width: 330px;
+      margin: 0;
+      color: rgba(41, 37, 34, .56);
+      font-size: 12px;
+      line-height: 1.7;
+      text-align: right
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px 24px
+    }
+
     /* === Garis pembatas kategori antar baris === */
-    .divider{grid-column:1/-1;display:flex;align-items:center;gap:18px;padding-top:6px}
-    .divider:first-child{padding-top:0}
-    .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--line)}
-    .divider span{white-space:nowrap;font:600 11px/1 Inter,Arial,sans-serif;letter-spacing:.19em;text-transform:uppercase;color:var(--cocoa)}
-    .card{display:block}.photo{aspect-ratio:4/5;overflow:hidden;background:var(--sand)}.photo img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.65,.2,1)}.card:hover .photo img{transform:scale(1.045)}.category{margin:15px 0 5px;color:rgba(90,56,32,.65);font-size:9px;font-weight:600;letter-spacing:.19em;text-transform:uppercase}.card h3{margin:15px 0 0;font:700 23px/1.08 'Cormorant Garamond',serif}.price{margin:8px 0 0;color:rgba(41,37,34,.58);font-size:12px}.cta-section{padding:92px 0;background:#fff;text-align:center}.cta-section h2{max-width:800px;margin:0 auto;font-size:clamp(37px,5vw,67px);line-height:1.05;letter-spacing:-.05em}.cta-sub{max-width:590px;margin:22px auto 27px;color:#665b54;font-size:16px;line-height:1.6}.button{min-width:190px;padding:15px 25px;border-radius:999px;font-size:15px;font-weight:600}.about{max-width:950px;margin:77px auto 0;padding-top:32px;border-top:1px solid var(--line);text-align:left}.about p{margin:0;color:#5c514b;font:500 22px/1.48 'Cormorant Garamond',serif}.about strong{color:var(--ink)}.about h3{margin:25px 0 0;text-align:center;font-size:clamp(27px,4vw,45px);letter-spacing:-.04em}.footer{background:#38271c;color:#fff}.footer-inner{padding:73px 0 0}.footer h2{margin:0;text-align:center;font:600 52px/1 'Cormorant Garamond',serif}.footer-rule{width:52px;height:1px;margin:24px auto 46px;background:#d7ad72}.contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:48px;text-align:center}.icon{display:grid;place-items:center;width:62px;height:62px;margin:0 auto 15px;border-radius:50%;background:rgba(255,255,255,.1);color:#ebc993;font-size:25px}.contacts h3{margin:0 0 9px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}.contacts p,.contacts a{margin:0;color:rgba(255,255,255,.76);font-size:13px;line-height:1.65}.map{overflow:hidden;border:1px solid rgba(255,255,255,.2)}.map iframe{display:block;width:100%;height:320px;border:0}.copyright{margin-top:43px;padding:18px 0;border-top:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:11px;font-weight:600;letter-spacing:.1em;text-align:center}@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr);gap:26px 14px}.catalog-top{display:block}.catalog-note{margin-top:16px;text-align:left}.catalog h2{font-size:45px}.contacts{grid-template-columns:repeat(2,1fr);gap:34px 15px}.hero{min-height:410px}.hero-inner{padding-bottom:54px}.wrap{width:min(100% - 32px,1180px)}.about p{font-size:19px}}@media(max-width:430px){.card h3{font-size:20px}.nav-cta{padding:10px 12px;font-size:10px}.brand{font-size:31px}.price{font-size:11px}}
+    .divider {
+      grid-column: 1/-1;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-top: 6px
+    }
+
+    .divider:first-child {
+      padding-top: 0
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line)
+    }
+
+    .divider span {
+      white-space: nowrap;
+      font: 600 11px/1 Inter, Arial, sans-serif;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      color: var(--cocoa)
+    }
+
+    .card {
+      display: block
+    }
+
+    .photo {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background: var(--sand)
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .65s cubic-bezier(.2, .65, .2, 1)
+    }
+
+    .card:hover .photo img {
+      transform: scale(1.045)
+    }
+
+    .category {
+      margin: 15px 0 5px;
+      color: rgba(90, 56, 32, .65);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .19em;
+      text-transform: uppercase
+    }
+
+    .card h3 {
+      margin: 15px 0 0;
+      font: 700 23px/1.08 'Cormorant Garamond', serif
+    }
+
+    .price {
+      margin: 8px 0 0;
+      color: rgba(41, 37, 34, .58);
+      font-size: 12px
+    }
+
+    .cta-section {
+      padding: 92px 0;
+      background: #fff;
+      text-align: center
+    }
+
+    .cta-section h2 {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: clamp(37px, 5vw, 67px);
+      line-height: 1.05;
+      letter-spacing: -.05em
+    }
+
+    .cta-sub {
+      max-width: 590px;
+      margin: 22px auto 27px;
+      color: #665b54;
+      font-size: 16px;
+      line-height: 1.6
+    }
+
+    .button {
+      min-width: 190px;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600
+    }
+
+    .about {
+      max-width: 950px;
+      margin: 77px auto 0;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+      text-align: left
+    }
+
+    .about p {
+      margin: 0;
+      color: #5c514b;
+      font: 500 22px/1.48 'Cormorant Garamond', serif
+    }
+
+    .about strong {
+      color: var(--ink)
+    }
+
+    .about h3 {
+      margin: 25px 0 0;
+      text-align: center;
+      font-size: clamp(27px, 4vw, 45px);
+      letter-spacing: -.04em
+    }
+
+    .footer {
+      background: #38271c;
+      color: #fff
+    }
+
+    .footer-inner {
+      padding: 73px 0 0
+    }
+
+    .footer h2 {
+      margin: 0;
+      text-align: center;
+      font: 600 52px/1 'Cormorant Garamond', serif
+    }
+
+    .footer-rule {
+      width: 52px;
+      height: 1px;
+      margin: 24px auto 46px;
+      background: #d7ad72
+    }
+
+    .contacts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-bottom: 48px;
+      text-align: center
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .1);
+      color: #ebc993;
+      font-size: 25px
+    }
+
+    .contacts h3 {
+      margin: 0 0 9px;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase
+    }
+
+    .contacts p,
+    .contacts a {
+      margin: 0;
+      color: rgba(255, 255, 255, .76);
+      font-size: 13px;
+      line-height: 1.65
+    }
+
+    .map {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .2)
+    }
+
+    .map iframe {
+      display: block;
+      width: 100%;
+      height: 320px;
+      border: 0
+    }
+
+    .copyright {
+      margin-top: 43px;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255, 255, 255, .15);
+      color: rgba(255, 255, 255, .8);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-align: center
+    }
+
+    @media(max-width:800px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 26px 14px
+      }
+
+      .catalog-top {
+        display: block
+      }
+
+      .catalog-note {
+        margin-top: 16px;
+        text-align: left
+      }
+
+      .catalog h2 {
+        font-size: 45px
+      }
+
+      .contacts {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 34px 15px
+      }
+
+      .hero {
+        min-height: 410px
+      }
+
+      .hero-inner {
+        padding-bottom: 54px
+      }
+
+      .wrap {
+        width: min(100% - 32px, 1180px)
+      }
+
+      .about p {
+        font-size: 19px
+      }
+    }
+
+    @media(max-width:430px) {
+      .card h3 {
+        font-size: 20px
+      }
+
+      .nav-cta {
+        padding: 10px 12px;
+        font-size: 10px
+      }
+
+      .brand {
+        font-size: 31px
+      }
+
+      .price {
+        font-size: 11px
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="header"><nav class="wrap nav"><a class="brand" href="#beranda">Grizelle<b>.</b></a><a class="nav-cta" target="_blank" rel="noopener" href="https://wa.me/6281215893627?text=Halo%20Grizelle%2C%20saya%20ingin%20bertanya%20mengenai%20souvenir.">Chat dengan kami ↗</a></nav></header>
-  <main id="beranda"><section class="hero"><div class="wrap hero-inner"><p class="eyebrow">Souvenir pernikahan custom</p><h1>Souvenir kurasi untuk hari <em>spesialmu.</em></h1><p>Temukan pilihan kenang-kenangan personal yang dibuat untuk merayakan cerita kalian. Pilih produk untuk melihat foto varian, detail, dan harga per pcs.</p></div></section>
-    <section class="wrap catalog" id="pricelist"><div class="catalog-top"><div><p class="eyebrow">Koleksi pilihan</p><h2>Pricelist Souvenir</h2></div><p class="catalog-note">Klik setiap produk untuk melihat detail dan varian. Harga mulai dari dapat berubah sesuai jumlah pesanan serta kebutuhan kustomisasi.</p></div><div id="productGrid" class="grid"></div></section>
-    <section id="konsultasi" class="cta-section"><div class="wrap"><h2>Mau Souvenir Premium yang hanya Ekslusif untukmu ?</h2><p class="cta-sub">Jangan sungkan untuk bertanya dan konsultasi gratis dengan kami, setiap minggunya ada promo menarik</p><a class="button" target="_blank" rel="noopener" href="https://wa.me/6281215893627?text=Halo%20Grizelle%2C%20saya%20ingin%20konsultasi%20souvenir.">Tanya Dulu</a></div><article class="about"><p><strong>Souvenir Pernikahan Solo oleh Grizelle Souvenir</strong> adalah pilihan ideal bagi pasangan yang ingin memberikan kenang-kenangan unik, elegan, dan khas kepada tamu undangan di hari istimewa mereka. Grizelle Souvenir dikenal sebagai penyedia souvenir berkualitas di Solo, menawarkan beragam produk yang cocok untuk berbagai tema pernikahan.</p><h3>SOUVENIR PERNIKAHAN SOLO</h3></article></section>
+  <header class="header">
+    <nav class="wrap nav"><a class="brand" href="#beranda">Grizelle<b>.</b></a><a class="nav-cta" target="_blank"
+        rel="noopener"
+        href="https://wa.me/6281215893627?text=Halo%20Grizelle%2C%20saya%20ingin%20bertanya%20mengenai%20souvenir.">Chat
+        dengan kami ↗</a></nav>
+  </header>
+  <main id="beranda">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Souvenir pernikahan custom</p>
+        <h1>Souvenir kurasi untuk hari <em>spesialmu.</em></h1>
+        <p>Temukan pilihan kenang-kenangan personal yang dibuat untuk merayakan cerita kalian. Pilih produk untuk
+          melihat foto varian, detail, dan harga per pcs.</p>
+      </div>
+    </section>
+    <section class="wrap catalog" id="pricelist">
+      <div class="catalog-top">
+        <div>
+          <p class="eyebrow">Koleksi pilihan</p>
+          <h2>Pricelist Souvenir</h2>
+        </div>
+        <p class="catalog-note">Klik setiap produk untuk melihat detail dan varian. Harga mulai dari dapat berubah
+          sesuai jumlah pesanan serta kebutuhan kustomisasi.</p>
+      </div>
+      <div id="productGrid" class="grid"></div>
+    </section>
+    <section id="konsultasi" class="cta-section">
+      <div class="wrap">
+        <h2>Mau Souvenir Premium yang hanya Ekslusif untukmu ?</h2>
+        <p class="cta-sub">Jangan sungkan untuk bertanya dan konsultasi gratis dengan kami, setiap minggunya ada promo
+          menarik</p><a class="button" target="_blank" rel="noopener"
+          href="https://wa.me/6281215893627?text=Halo%20Grizelle%2C%20saya%20ingin%20konsultasi%20souvenir.">Tanya
+          Dulu</a>
+      </div>
+      <article class="about">
+        <p><strong>Souvenir Pernikahan Solo oleh Grizelle Souvenir</strong> adalah pilihan ideal bagi pasangan yang
+          ingin memberikan kenang-kenangan unik, elegan, dan khas kepada tamu undangan di hari istimewa mereka. Grizelle
+          Souvenir dikenal sebagai penyedia souvenir berkualitas di Solo, menawarkan beragam produk yang cocok untuk
+          berbagai tema pernikahan.</p>
+        <h3>SOUVENIR PERNIKAHAN SOLO</h3>
+      </article>
+    </section>
   </main>
-  <footer class="footer"><div class="wrap footer-inner"><h2>Connect with me</h2><div class="footer-rule"></div><div class="contacts"><section><div class="icon">⌖</div><h3>Alamat</h3><p>Jl Tegalmade<br>Sukoharjo</p></section><section><div class="icon">◔</div><h3>WhatsApp</h3><a target="_blank" rel="noopener" href="https://wa.me/6281215893627">081215893627</a></section><section><div class="icon">✉</div><h3>Email Address</h3><a href="mailto:enzoprojectsolo@gmail.com">enzoprojectsolo@gmail.com</a></section><section><div class="icon">◷</div><h3>Business Hours</h3><p>Buka Setiap Hari<br>(8.00-21.00)</p></section></div><div class="map"><iframe title="Peta CV. Enzo Group" loading="lazy" src="https://www.google.com/maps?q=CV.%20Enzo%20Group%20Custom%20Undangan&output=embed"></iframe></div><div class="copyright">COPYRIGHT 2025 - ENZO WEDDING</div></div></footer>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <h2>Connect with me</h2>
+      <div class="footer-rule"></div>
+      <div class="contacts">
+        <section>
+          <div class="icon">⌖</div>
+          <h3>Alamat</h3>
+          <p>Jl Tegalmade<br>Sukoharjo</p>
+        </section>
+        <section>
+          <div class="icon">◔</div>
+          <h3>WhatsApp</h3><a target="_blank" rel="noopener" href="https://wa.me/6281215893627">081215893627</a>
+        </section>
+        <section>
+          <div class="icon">✉</div>
+          <h3>Email Address</h3><a href="mailto:enzoprojectsolo@gmail.com">enzoprojectsolo@gmail.com</a>
+        </section>
+        <section>
+          <div class="icon">◷</div>
+          <h3>Business Hours</h3>
+          <p>Buka Setiap Hari<br>(8.00-21.00)</p>
+        </section>
+      </div>
+      <div class="map"><iframe title="Peta CV. Enzo Group" loading="lazy"
+          src="https://www.google.com/maps?q=CV.%20Enzo%20Group%20Custom%20Undangan&output=embed"></iframe></div>
+      <div class="copyright">COPYRIGHT 2025 - ENZO WEDDING</div>
+    </div>
+  </footer>
   <script>
-    const products=[
-      ['A001','Pouch','Pouch Serut Kanvas Polos','Rp 4.000','asset/catalog/A001.png'],['A002','Pouch','Pouch Kulit Bronze Wristlet','Rp 4.000','asset/catalog/A002.png'],['A003','Pouch','Pouch Kanvas Motif Aztec','Rp 4.000','asset/catalog/A003.png'],
-      ['B001','Botol Kaca','Botol Kaca Frosted Tutup Stainless','Rp 4.000','asset/catalog/B001.png'],['B002','Botol Kaca','Tumbler Kaca Sleeve Kulit','Rp 4.000','asset/catalog/B002.png'],
-      ['E001','Gelas Alumunium','Gelas Enamel Klasik','Rp 4.000','asset/catalog/E001.png'],
-      ['F001','Tas','Tas Kanvas Tote Motif Tropical','Rp 4.000','asset/catalog/F001.png'],
-      ['G001','Piring','Piring Keramik Motif Biru Putih','Rp 4.000','asset/catalog/G001.png'],
-      ['H001','Hard Box','Hard Box Mug Jendela Emas','Rp 4.000','asset/catalog/H001.png'],['H002','Hard Box','Hard Box Tinggi Thank You','Rp 4.000','asset/catalog/H002.png'],['H003','Hard Box','Hard Box Floral Minimalis','Rp 4.000','asset/catalog/H003.png'],['H004','Hard Box','Hard Box Tinggi Dispenser','Rp 4.000','asset/catalog/H004.png'],['H005','Hard Box','Hard Box Jendela Piring','Rp 4.000','asset/catalog/H005.png'],['H006','Hard Box','Hard Box Tema Kastil','Rp 4.000','asset/catalog/H006.png'],['H007','Hard Box','Hard Box Mug Motif Panda','Rp 4.000','asset/catalog/H007.png'],
-      ['I001','Dispenser Sabun','Dispenser Sabun Custom','Rp 4.000','asset/catalog/I001.png']
+    const products = [
+      ['A001', 'Pouch', 'Pouch Serut Kanvas Polos', 'Rp 4.000', 'asset/catalog/A001.png'], ['A002', 'Pouch', 'Pouch Kulit Bronze Wristlet', 'Rp 4.000', 'asset/catalog/A002.png'], ['A003', 'Pouch', 'Pouch Kanvas Motif Aztec', 'Rp 4.000', 'asset/catalog/A003.png'],
+      ['B001', 'Botol Kaca', 'Botol Kaca Frosted Tutup Stainless', 'Rp 4.000', 'asset/catalog/B001.png'], ['B002', 'Botol Kaca', 'Tumbler Kaca Sleeve Kulit', 'Rp 4.000', 'asset/catalog/B002.png'],
+      ['E001', 'Gelas Alumunium', 'Gelas Enamel Klasik', 'Rp 4.000', 'asset/catalog/E001.png'],
+      ['F001', 'Tas', 'Tas Kanvas Tote Motif Tropical', 'Rp 4.000', 'asset/catalog/F001.png'],
+      ['G001', 'Piring', 'Piring Keramik Motif Biru Putih', 'Rp 4.000', 'asset/catalog/G001.png'],
+      ['I001', 'Dispenser Sabun', 'Dispenser Sabun Custom', 'Rp 4.000', 'asset/catalog/I001.png']
     ];
 
     // Kelompokkan produk berdasarkan kategori, urutan mengikuti kemunculan pertama di array
-    const groups=new Map();
-    products.forEach(p=>{
-      const cat=p[1];
-      if(!groups.has(cat)) groups.set(cat,[]);
+    const groups = new Map();
+    products.forEach(p => {
+      const cat = p[1];
+      if (!groups.has(cat)) groups.set(cat, []);
       groups.get(cat).push(p);
     });
 
-    let html='';
-    for(const [cat,items] of groups){
-      html+=`<div class="divider"><span>${cat}</span></div>`;
-      html+=items.map(([slug,cat2,name,price,img])=>`<a class="card" href="detail.html?item=${slug}"><div class="photo"><img src="${img}" alt="${name}" loading="lazy"></div><h3>${name}</h3><p class="price">Harga mulai dari ${price}</p></a>`).join('');
+    let html = '';
+    for (const [cat, items] of groups) {
+      html += `<div class="divider"><span>${cat}</span></div>`;
+      html += items.map(([slug, cat2, name, price, img]) => `<a class="card" href="detail.html?item=${slug}"><div class="photo"><img src="${img}" alt="${name}" loading="lazy"></div><h3>${name}</h3><p class="price">Harga mulai dari ${price}</p></a>`).join('');
     }
-    document.getElementById('productGrid').innerHTML=html;
+    document.getElementById('productGrid').innerHTML = html;
   </script>
-</body></html>
+</body>
+
+</html>
